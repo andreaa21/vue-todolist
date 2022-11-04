@@ -14,22 +14,32 @@
 
     <div id="app" class="container">
         <div class="logo">
-            <img src="img/logo.png" alt="Logo">
+            <img :src="logoImg" alt="Logo">
         </div>
         <div class="input-area">
             <input type="text" placeholder="New Task">
             <button>Aggiungi</button>
+            <p class="error">{{errorMsg}}</p>
         </div>
         <div class="task-area">
-            <div class="task">
-                <div class="text">
-                    cosa da fare
-                </div>
-                <i class="fa-solid fa-xmark"></i>
+            <div 
+            v-for="(task,index) in tasks"
+            @click="task.done = !task.done"
+            
+            class="task">
+                <span 
+                :class="{'done' : task.done}"
+                class="text">
+                    {{task.text}}
+                </span>
+                <i
+                @click.stop="deleteTask(index)"
+                class="fa-solid fa-xmark"></i>
             </div>
         </div>
     </div>
 
+    <script src="https://unpkg.com/vue@3"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
