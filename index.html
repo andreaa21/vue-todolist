@@ -32,7 +32,8 @@
             <div 
             v-for="(task,index) in tasks"
             @click="task.done = !task.done"
-            class="task">
+            class="task"
+            v-if="tasks.length > 0">
                 <span 
                 :class="{'done' : task.done}"
                 class="text">
@@ -42,6 +43,7 @@
                 @click.stop="deleteTask(index)"
                 class="fa-solid fa-xmark"></i>
             </div>
+            <h3 v-else>Non ci sono Tasks!</h3>
         </div>
     </div>
 
