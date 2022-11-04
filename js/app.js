@@ -23,6 +23,7 @@ createApp({
         return{
             logoImg: 'img/logo.png',
             errorMsg: '',
+            newTaskText: '',
             tasks:[
                 {
                     text: 'Sviluppare un carousel con autoscroll',
@@ -47,6 +48,20 @@ createApp({
             }else{
                 this.errorMsg = "Puoi eliminare un task solo se è stato fatto!"
             }
+        },
+        addNewTask(){
+            this.errorMsg = '';
+            if(this.newTaskText.length < 5){
+                this.errorMsg = 'Inserisci un task (almeno 5 caratteri)'
+            }else {
+                const newTask = 
+                {
+                    text: this.newTaskText,
+                    done:false
+                }
+                this.tasks.unshift(newTask);
+                this.newTaskText = '';
+            }   
         }
     }
 }).mount('#app')

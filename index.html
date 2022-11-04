@@ -17,15 +17,21 @@
             <img :src="logoImg" alt="Logo">
         </div>
         <div class="input-area">
-            <input type="text" placeholder="New Task">
-            <button>Aggiungi</button>
+            <input
+            type="text"
+            placeholder="New Task"
+            v-model.trim="newTaskText"
+            @keyup.enter="addNewTask"
+            >
+            <button
+            @click="addNewTask"
+            >Aggiungi</button>
             <p class="error">{{errorMsg}}</p>
         </div>
         <div class="task-area">
             <div 
             v-for="(task,index) in tasks"
             @click="task.done = !task.done"
-            
             class="task">
                 <span 
                 :class="{'done' : task.done}"
