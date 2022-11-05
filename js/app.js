@@ -36,6 +36,10 @@ createApp({
                 {
                     text: 'Altra cosa da fare che non mi viene in mente',
                     done: false
+                },
+                {
+                    text: 'taskk',
+                    done: false
                 }
             ]
         }
