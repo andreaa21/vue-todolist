@@ -36,10 +36,6 @@ createApp({
                 {
                     text: 'Altra cosa da fare che non mi viene in mente',
                     done: false
-                },
-                {
-                    text: 'taskk',
-                    done: false
                 }
             ]
         }
@@ -55,6 +51,15 @@ createApp({
         },
         addNewTask(){
             this.errorMsg = '';
+
+            for(i in this.tasks){
+                if(this.newTaskText === this.tasks[i].text){
+                    this.errorMsg = 'Questo task è già presente!';
+                    this.newTaskText = '';
+                    return;
+                }
+            }
+
             if(this.newTaskText.length < 5){
                 this.errorMsg = 'Inserisci un task (almeno 5 caratteri)'
             }else {
@@ -66,6 +71,9 @@ createApp({
                 this.tasks.unshift(newTask);
                 this.newTaskText = '';
             }   
+        },
+        checkTask(){
+
         }
     }
 }).mount('#app')
