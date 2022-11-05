@@ -60,8 +60,11 @@ body{
     background-color: white;
     box-shadow: 10px 10px 5px grey;
 }
-.task:hover span{
-    text-decoration: underline;
+.fa-xmark{
+    display: none;
+}
+.task:hover .fa-xmark{
+    display: inline-block;
 }
 
 .done{
